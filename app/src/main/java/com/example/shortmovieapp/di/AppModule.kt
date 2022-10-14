@@ -1,7 +1,9 @@
 package com.example.shortmovieapp.di
 
 import android.content.Context
+import android.os.Build.VERSION_CODES.BASE
 import androidx.room.Room
+import com.example.shortmovieapp.BuildConfig
 import com.example.shortmovieapp.Util.Constans.Companion.BASE_URL
 import com.example.shortmovieapp.db.MovieDatabase
 import com.example.shortmovieapp.service.Api
@@ -31,7 +33,7 @@ object AppModule {
     @Provides
     fun getRetrofitInstance(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
